@@ -2,8 +2,8 @@
 title:       Wandering the interwebs
 email:       nothanks@nope.com
 author:      xxdesmus
-description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
-baseurl:     ""
+description: "Wandering the interwebs"
+baseurl:     "https://justin.cf"
 url:         "https://justin.cf"
 date_format: "%b %-d, %Y"
 
@@ -78,7 +78,6 @@ text:
     facebook:     'Share on Facebook'
     twitter:      'Share on Twitter'
     linkedin:     'Share on LinkedIn'
-    tumblr:       'Share on Tumblr'
     reddit:       'Share on Reddit'
     hackernews:   'Share on Hacker News'
   post:
