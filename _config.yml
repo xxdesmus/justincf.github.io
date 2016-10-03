@@ -1,10 +1,10 @@
 # Site settings
-title:       Pixyll
-email:       your_email@example.com
-author:      John Otander
+title:       Wandering the interwebs
+email:       nothanks@nope.com
+author:      xxdesmus
 description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
 baseurl:     ""
-url:         "http://pixyll.com"
+url:         "https://justin.cf"
 date_format: "%b %-d, %Y"
 
 # Google services
@@ -20,7 +20,7 @@ bing_verification:
 animated:             false
 show_related_posts:   false
 show_post_footers:    false
-show_social_icons:    false
+show_social_icons:    true
 ajaxify_contact_form: false
 enable_mathjax: false
 extended_fonts: false
@@ -33,7 +33,7 @@ fb_page_id:
 
 # Disqus post comments
 # (leave blank to disable Disqus)
-disqus_shortname:
+disqus_shortname: justincf
 
 # Facebook Comments plugin
 # (leave blank to disable Facebook Comments, otherwise set it to true)
@@ -42,10 +42,10 @@ facebook_appid:
 facebook_comments_number: 10
 
 # Social icons
-github_username:
-bitbucket_username:
+github_username: xxdesmus
+bitbucket_username: 
 stackoverflow_id:
-twitter_username:
+twitter_username: xxdesmus
 skype_username:
 steam_nickname:
 google_plus_id:
@@ -57,7 +57,7 @@ paypal_url:
 flattr_button:
 
 # Post sharing icons
-show_sharing_icons: false
+show_sharing_icons: true
 # Change to 'true' to enable individual icons
 share_facebook: false
 share_twitter: false
@@ -77,12 +77,9 @@ text:
     text:         'Share this post!'
     facebook:     'Share on Facebook'
     twitter:      'Share on Twitter'
-    googleplus:   'Share on Google+'
     linkedin:     'Share on LinkedIn'
-    digg:         'Share on Digg'
     tumblr:       'Share on Tumblr'
     reddit:       'Share on Reddit'
-    stumbleupon:  'Share on StumbleUpon'
     hackernews:   'Share on Hacker News'
   post:
     updated:        'Updated'
