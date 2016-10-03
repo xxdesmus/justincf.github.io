@@ -2,7 +2,8 @@
 layout: post
 title: You're up and running!
 published: true
-date: {}
+date:
+  'Sun Oct 02 2016 17:00:00 GMT-0700 (PDT)': null
 summary: Hello world
 categories: jekyll test
 ---
