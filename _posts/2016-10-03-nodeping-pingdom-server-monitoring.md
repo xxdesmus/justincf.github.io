@@ -6,6 +6,7 @@ summary: In need of a server monitoring solution...
 categories: monitoring pingdom newrelic nodeping
 ---
 ## Pingdom:
+
 ### Positives:
 
 - mobile app
@@ -23,6 +24,7 @@ categories: monitoring pingdom newrelic nodeping
  
 
 ## NodePing:
+
 ### Positives:
 
 - Free public status page
