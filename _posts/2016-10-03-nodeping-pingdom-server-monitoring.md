@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 date: 'Mon Oct 3 2016 13:27:00 GMT-0700 (PDT)'
 summary: In need of a server monitoring solution...
