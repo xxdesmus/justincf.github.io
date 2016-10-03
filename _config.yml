@@ -5,7 +5,7 @@ author:      xxdesmus
 description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
 baseurl:     ""
 url:         "https://justin.cf"
-date_format: "%b %-d, %Y"
+date_format: "YYYY-MM-DD HH:MM:SS +/-TTTT"
 
 # Google services
 google_verification:
