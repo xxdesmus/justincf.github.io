@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 date: 'Mon Oct 3 2016 13:20:00 GMT-0700 (PDT)'
 summary: Here’s a simple way to check if DANE is properly setup on a site
