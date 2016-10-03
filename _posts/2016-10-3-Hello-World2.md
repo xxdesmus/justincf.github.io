@@ -3,7 +3,9 @@ layout: post
 title: HelloWorld2
 published: true
 date: 'Sun Oct 02 2016 17:00:00 GMT-0700 (PDT)'
-summary: 'Hello world, again'
+summary: >-
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet quam in ex
+  vulputate, vel porttitor libero volutpat.
 categories: jekyll test
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet quam in ex vulputate, vel porttitor libero volutpat. Integer in velit urna. Suspendisse luctus erat quis suscipit varius. In risus mauris, egestas in ultrices lobortis, venenatis quis metus. Quisque malesuada ornare elit a ullamcorper. Duis consequat rutrum leo, sit amet laoreet dolor blandit ut. Morbi sed sollicitudin nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent sit amet odio sit amet mi venenatis ultrices. Aenean congue lacus sit amet lacus finibus tincidunt. Phasellus malesuada sit amet ipsum hendrerit suscipit. Nunc id ligula non odio posuere varius vitae non metus. Vestibulum ac tortor facilisis, cursus nisi id, mollis dolor.
