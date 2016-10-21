@@ -1,6 +1,6 @@
 ---
 title: How to Test if DANE is Properly Configured
-date: '2016-10-03 13:20:00'
+date: '2016-10-03 00:00:00'
 published: true
 layout: post
 summary: Here’s a simple way to check if DANE is properly setup on a site

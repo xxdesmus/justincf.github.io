@@ -1,6 +1,6 @@
 ---
 title: HelloWorld1
-date: '2016-10-02 17:00:00'
+date: '2016-10-02 00:00:00'
 layout: post
 published: true
 summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet quam
