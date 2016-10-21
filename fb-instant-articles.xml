@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title></title>
+    <link>https://justin.cf</link>
+    <description>
+      Wandering the interwebs
+    </description>
+    
+        
+            <item>
+                <title></title>
+                <link>https://justin.cf/monitoring/pingdom/newrelic/nodeping/2016/10/03/nodeping-pingdom-server-monitoring/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <h2 id="pingdom">Pingdom:</h2>
+
+<h3 id="positives">Positives:</h3>
+
+<ul>
+  <li>mobile app</li>
+  <li>large number of testing locations</li>
+  <li>10 checks at the yearly price is reasonably priced.</li>
+  <li>Built-in “PageDuty”-lite incident response is handy, though overkill for personal web servers.</li>
+  <li>I like the root cause analysis any time a check fails. Provides full connection output, response headers, etc. Extremely helpful when troubleshooting the cause of the failed check.</li>
+</ul>
+
+<h3 id="negatives">Negatives:</h3>
+
+<ul>
+  <li>New website design is painfully slow and confusing.</li>
+  <li>Can’t add a new check via the mobile app</li>
+  <li>No option to specify host headers for a check — such as specify IP and specify the hostname directly.</li>
+  <li>No public status page unless you pay 2x per month.</li>
+</ul>
+
+<h2 id="nodeping">NodePing:</h2>
+
+<h3 id="positives-1">Positives:</h3>
+
+<ul>
+  <li>Free public status page</li>
+  <li>Website is fast and clean, though lacking some features</li>
+  <li>Pricing is attractive, even without a yearly agreement.</li>
+</ul>
+
+<h3 id="negatives-1">Negatives:</h3>
+
+<ul>
+  <li>No mobile app</li>
+  <li>Relatively few testing locations</li>
+  <li>No option to specify host headers for a check — such as specify IP and specify the hostname directly.</li>
+  <li>Virtually nothing in the way of detail when a check fails. Also no easy way to go back and find a failed check after 300 successful checks have passed.</li>
+</ul>
+
+<p>They both have a variety of checks — HTTP/HTTPS, UDP/TCP arbitrary port check, POP/SMTP/IMAP, and DNS checks. Both send me an email and push notification via Pushover whenever there’s an issue. Both use 1 minute checks, and confirmation from 3 locations before an alert is triggered.</p>
+
+<p>I like StatusCake, but their checks seem spotty at best. They report all kinds of intermittent downtime when every other monitoring service sees zero issues. Not exactly great when your server monitoring tool is lying to you.</p>
+
+<p>I also tested Monitus and CopperEgg. Didn’t like either one. I use New Relic’s free plan which is handy, also Linode’s Longview tool with the free plan.</p>
+
+<p>Ultimately it looks like I’ll be going with Pingdom, even though it’s not my favourite choice.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/monitoring/pingdom/newrelic/nodeping/2016/10/03/nodeping-pingdom-server-monitoring/</guid>
+                <description>
+                    
+                    In need of a server monitoring solution...
+                    
+                </description>
+                <pubDate>Mon, 03 Oct 2016 13:27:00 +0000</pubDate>
+                <author>xxdesmus</author>
+            </item>
+        
+    
+        
+            <item>
+                <title>How to Test if DANE is Properly Configured</title>
+                <link>https://justin.cf/dane/dnssec/2016/10/03/how-to-test-dnssec-dane/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Here’s a simple way to check if <a href="https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE</a> is properly setup on a site:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># echo -n | openssl s_client -connect spdysync.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509 -noout -fingerprint -sha256 | tr -d :
+depth=2 /C=IL/O=StartCom Ltd./OU=Secure Digital Certificate Signing/CN=StartCom Certification Authority
+verify error:num=19:self signed certificate in certificate chain
+verify return:0
+DONE
+SHA256 Fingerprint=461479314CDEC67FB609C812EB74737BAA5327455AD422BA606C88DD530BF2C2
+</code></pre>
+</div>
+
+<p>And then compare that value against published TLSA record:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># dig +short TLSA _443._tcp.spdysync.com
+3 0 1 461479314CDEC67FB609C812EB74737BAA5327455AD422BA606C88DD 530BF2C2
+</code></pre>
+</div>
+
+<p>These value should match. If they don’t assume the site has been compromised.</p>
+
+<p>This assumes of course the domain is also signed with <a href="https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">DNSSEC</a>.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/dane/dnssec/2016/10/03/how-to-test-dnssec-dane/</guid>
+                <description>
+                    
+                    Here’s a simple way to check if DANE is properly setup on a site
+                    
+                </description>
+                <pubDate>Mon, 03 Oct 2016 13:20:00 +0000</pubDate>
+                <author>xxdesmus</author>
+            </item>
+        
+    
+        
+            <item>
+                <title>HelloWorld2</title>
+                <link>https://justin.cf/jekyll/test/2016/10/02/Hello-World2/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet quam in ex vulputate, vel porttitor libero volutpat. Integer in velit urna. Suspendisse luctus erat quis suscipit varius. In risus mauris, egestas in ultrices lobortis, venenatis quis metus. Quisque malesuada ornare elit a ullamcorper. Duis consequat rutrum leo, sit amet laoreet dolor blandit ut. Morbi sed sollicitudin nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent sit amet odio sit amet mi venenatis ultrices. Aenean congue lacus sit amet lacus finibus tincidunt. Phasellus malesuada sit amet ipsum hendrerit suscipit. Nunc id ligula non odio posuere varius vitae non metus. Vestibulum ac tortor facilisis, cursus nisi id, mollis dolor.</p>
+
+<p>Donec nec risus nibh. Nunc id vehicula tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis euismod massa. Cras pellentesque neque dui, non gravida nulla pulvinar egestas. Integer lacinia lacus scelerisque, ornare nisi mollis, laoreet ex. Nunc urna eros, aliquet et pellentesque id, tincidunt suscipit lacus.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/jekyll/test/2016/10/02/Hello-World2/</guid>
+                <description>
+                    
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet quam in ex vulputate, vel porttitor libero volutpat.
+                    
+                </description>
+                <pubDate>Sun, 02 Oct 2016 17:00:00 +0000</pubDate>
+                <author>xxdesmus</author>
+            </item>
+        
+    
+        
+            <item>
+                <title>HelloWorld1</title>
+                <link>https://justin.cf/jekyll/test/2016/10/02/Hello-World1/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet quam in ex vulputate, vel porttitor libero volutpat. Integer in velit urna. Suspendisse luctus erat quis suscipit varius. In risus mauris, egestas in ultrices lobortis, venenatis quis metus. Quisque malesuada ornare elit a ullamcorper. Duis consequat rutrum leo, sit amet laoreet dolor blandit ut. Morbi sed sollicitudin nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent sit amet odio sit amet mi venenatis ultrices. Aenean congue lacus sit amet lacus finibus tincidunt. Phasellus malesuada sit amet ipsum hendrerit suscipit. Nunc id ligula non odio posuere varius vitae non metus. Vestibulum ac tortor facilisis, cursus nisi id, mollis dolor.</p>
+
+<p>Donec nec risus nibh. Nunc id vehicula tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis euismod massa. Cras pellentesque neque dui, non gravida nulla pulvinar egestas. Integer lacinia lacus scelerisque, ornare nisi mollis, laoreet ex. Nunc urna eros, aliquet et pellentesque id, tincidunt suscipit lacus.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/jekyll/test/2016/10/02/Hello-World1/</guid>
+                <description>
+                    
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet quam in ex vulputate, vel porttitor libero volutpat.
+                    
+                </description>
+                <pubDate>Sun, 02 Oct 2016 17:00:00 +0000</pubDate>
+                <author>xxdesmus</author>
+            </item>
+        
+    
+        
+            <item>
+                <title>Helloworld4</title>
+                <link>https://justin.cf/jekyll/test/2016/10/02/helloworld4/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Enter text in <a href="http://daringfireball.net/projects/markdown/">Markdown</a>. Use the toolbar above, or click the <strong>?</strong> button for formatting help.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/jekyll/test/2016/10/02/helloworld4/</guid>
+                <description>
+                    
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet quam in ex vulputate, vel porttitor libero volutpat.
+                    
+                </description>
+                <pubDate>Sun, 02 Oct 2016 17:00:00 +0000</pubDate>
+                <author>xxdesmus</author>
+            </item>
+        
+    
+        
+            <item>
+                <title>Helloworld3</title>
+                <link>https://justin.cf/jekyll/test/2016/10/02/helloworld3/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet quam in ex vulputate, vel porttitor libero volutpat. Integer in velit urna. Suspendisse luctus erat quis suscipit varius. In risus mauris, egestas in ultrices lobortis, venenatis quis metus. Quisque malesuada ornare elit a ullamcorper. Duis consequat rutrum leo, sit amet laoreet dolor blandit ut. Morbi sed sollicitudin nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent sit amet odio sit amet mi venenatis ultrices. Aenean congue lacus sit amet lacus finibus tincidunt. Phasellus malesuada sit amet ipsum hendrerit suscipit. Nunc id ligula non odio posuere varius vitae non metus. Vestibulum ac tortor facilisis, cursus nisi id, mollis dolor.</p>
+
+<p>Donec nec risus nibh. Nunc id vehicula tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis euismod massa. Cras pellentesque neque dui, non gravida nulla pulvinar egestas. Integer lacinia lacus scelerisque, ornare nisi mollis, laoreet ex. Nunc urna eros, aliquet et pellentesque id, tincidunt suscipit lacus.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/jekyll/test/2016/10/02/helloworld3/</guid>
+                <description>
+                    
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet quam in ex vulputate, vel porttitor libero volutpat.
+                    
+                </description>
+                <pubDate>Sun, 02 Oct 2016 17:00:00 +0000</pubDate>
+                <author>xxdesmus</author>
+            </item>
+        
+    
+  </channel>
+</rss>

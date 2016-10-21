@@ -1,0 +1,93 @@
+---
+title: Wandering the interwebs
+email: nothanks@nope.com
+author: xxdesmus
+description: Wandering the interwebs
+baseurl: https://justin.cf
+url: https://justin.cf
+date_format: "%b %-d, %Y"
+google_verification: 
+google_analytics: 
+google_tag_manager: 
+bing_verification: 
+animated: false
+show_related_posts: false
+show_post_footers: false
+show_social_icons: true
+ajaxify_contact_form: false
+enable_mathjax: false
+extended_fonts: false
+enable_anchorjs: false
+fb_page: false
+fb_page_id: 
+disqus_shortname: justincf
+facebook_comments: 
+facebook_appid: 
+facebook_comments_number: 10
+github_username: xxdesmus
+bitbucket_username: 
+stackoverflow_id: 
+twitter_username: xxdesmus
+skype_username: 
+steam_nickname: 
+google_plus_id: 
+linkedin_username: 
+angellist_username: 
+medium_id: 
+bitcoin_url: 
+paypal_url: 
+flattr_button: 
+show_sharing_icons: true
+share_facebook: false
+share_twitter: false
+share_googleplus: false
+share_linkedin: false
+share_digg: false
+share_tumblr: false
+share_reddit: false
+share_stumbleupon: false
+share_hackernews: false
+text:
+  pagination:
+    newer: Newer
+    older: Older
+  share_buttons:
+    text: Share this post!
+    facebook: Share on Facebook
+    twitter: Share on Twitter
+    linkedin: Share on LinkedIn
+    reddit: Share on Reddit
+    hackernews: Share on Hacker News
+  post:
+    updated: Updated
+    minute_read: minute read
+    related_posts: Related Posts
+  index:
+    coming_soon: Coming soon...
+  contact:
+    email: Email Address
+    content: What would you like to say?
+    subject: New submission!
+    submit: Say Hello
+    ajax:
+      sending: sending..
+      sent: Message sent!
+      error: Error!
+  thanks: Thanks for contacting us. We will reply as soon as possible.
+  og_locale: en_US
+markdown: kramdown
+redcarpet:
+  extensions:
+  - smart
+  - tables
+  - with_toc_data
+permalink: pretty
+paginate: 3
+sass:
+  compressed: true
+gems:
+- jekyll-paginate
+- jekyll-sitemap
+exclude:
+- vendor
+timezone: America/Los_Angeles

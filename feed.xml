@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wandering the interwebs</title>
+    <description>Wandering the interwebs</description>
+    <link>https://justin.cfhttps://justin.cf/</link>
+    <atom:link href="https://justin.cfhttps://justin.cf/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title></title>
+        <description>&lt;h2 id=&quot;pingdom&quot;&gt;Pingdom:&lt;/h2&gt;
+
+&lt;h3 id=&quot;positives&quot;&gt;Positives:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;mobile app&lt;/li&gt;
+  &lt;li&gt;large number of testing locations&lt;/li&gt;
+  &lt;li&gt;10 checks at the yearly price is reasonably priced.&lt;/li&gt;
+  &lt;li&gt;Built-in “PageDuty”-lite incident response is handy, though overkill for personal web servers.&lt;/li&gt;
+  &lt;li&gt;I like the root cause analysis any time a check fails. Provides full connection output, response headers, etc. Extremely helpful when troubleshooting the cause of the failed check.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;negatives&quot;&gt;Negatives:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New website design is painfully slow and confusing.&lt;/li&gt;
+  &lt;li&gt;Can’t add a new check via the mobile app&lt;/li&gt;
+  &lt;li&gt;No option to specify host headers for a check — such as specify IP and specify the hostname directly.&lt;/li&gt;
+  &lt;li&gt;No public status page unless you pay 2x per month.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;nodeping&quot;&gt;NodePing:&lt;/h2&gt;
+
+&lt;h3 id=&quot;positives-1&quot;&gt;Positives:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Free public status page&lt;/li&gt;
+  &lt;li&gt;Website is fast and clean, though lacking some features&lt;/li&gt;
+  &lt;li&gt;Pricing is attractive, even without a yearly agreement.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;negatives-1&quot;&gt;Negatives:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;No mobile app&lt;/li&gt;
+  &lt;li&gt;Relatively few testing locations&lt;/li&gt;
+  &lt;li&gt;No option to specify host headers for a check — such as specify IP and specify the hostname directly.&lt;/li&gt;
+  &lt;li&gt;Virtually nothing in the way of detail when a check fails. Also no easy way to go back and find a failed check after 300 successful checks have passed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;They both have a variety of checks — HTTP/HTTPS, UDP/TCP arbitrary port check, POP/SMTP/IMAP, and DNS checks. Both send me an email and push notification via Pushover whenever there’s an issue. Both use 1 minute checks, and confirmation from 3 locations before an alert is triggered.&lt;/p&gt;
+
+&lt;p&gt;I like StatusCake, but their checks seem spotty at best. They report all kinds of intermittent downtime when every other monitoring service sees zero issues. Not exactly great when your server monitoring tool is lying to you.&lt;/p&gt;
+
+&lt;p&gt;I also tested Monitus and CopperEgg. Didn’t like either one. I use New Relic’s free plan which is handy, also Linode’s Longview tool with the free plan.&lt;/p&gt;
+
+&lt;p&gt;Ultimately it looks like I’ll be going with Pingdom, even though it’s not my favourite choice.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 03 Oct 2016 13:27:00 +0000</pubDate>
+        <link>https://justin.cfhttps://justin.cf/monitoring/pingdom/newrelic/nodeping/2016/10/03/nodeping-pingdom-server-monitoring/</link>
+        <guid isPermaLink="true">https://justin.cfhttps://justin.cf/monitoring/pingdom/newrelic/nodeping/2016/10/03/nodeping-pingdom-server-monitoring/</guid>
+      </item>
+    
+      <item>
+        <title>How to Test if DANE is Properly Configured</title>
+        <description>&lt;p&gt;Here’s a simple way to check if &lt;a href=&quot;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities&quot;&gt;DANE&lt;/a&gt; is properly setup on a site:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# echo -n | openssl s_client -connect spdysync.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509 -noout -fingerprint -sha256 | tr -d :
+depth=2 /C=IL/O=StartCom Ltd./OU=Secure Digital Certificate Signing/CN=StartCom Certification Authority
+verify error:num=19:self signed certificate in certificate chain
+verify return:0
+DONE
+SHA256 Fingerprint=461479314CDEC67FB609C812EB74737BAA5327455AD422BA606C88DD530BF2C2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;And then compare that value against published TLSA record:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# dig +short TLSA _443._tcp.spdysync.com
+3 0 1 461479314CDEC67FB609C812EB74737BAA5327455AD422BA606C88DD 530BF2C2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;These value should match. If they don’t assume the site has been compromised.&lt;/p&gt;
+
+&lt;p&gt;This assumes of course the domain is also signed with &lt;a href=&quot;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions&quot;&gt;DNSSEC&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 03 Oct 2016 13:20:00 +0000</pubDate>
+        <link>https://justin.cfhttps://justin.cf/dane/dnssec/2016/10/03/how-to-test-dnssec-dane/</link>
+        <guid isPermaLink="true">https://justin.cfhttps://justin.cf/dane/dnssec/2016/10/03/how-to-test-dnssec-dane/</guid>
+      </item>
+    
+      <item>
+        <title>HelloWorld2</title>
+        <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet quam in ex vulputate, vel porttitor libero volutpat. Integer in velit urna. Suspendisse luctus erat quis suscipit varius. In risus mauris, egestas in ultrices lobortis, venenatis quis metus. Quisque malesuada ornare elit a ullamcorper. Duis consequat rutrum leo, sit amet laoreet dolor blandit ut. Morbi sed sollicitudin nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent sit amet odio sit amet mi venenatis ultrices. Aenean congue lacus sit amet lacus finibus tincidunt. Phasellus malesuada sit amet ipsum hendrerit suscipit. Nunc id ligula non odio posuere varius vitae non metus. Vestibulum ac tortor facilisis, cursus nisi id, mollis dolor.&lt;/p&gt;
+
+&lt;p&gt;Donec nec risus nibh. Nunc id vehicula tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis euismod massa. Cras pellentesque neque dui, non gravida nulla pulvinar egestas. Integer lacinia lacus scelerisque, ornare nisi mollis, laoreet ex. Nunc urna eros, aliquet et pellentesque id, tincidunt suscipit lacus.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 02 Oct 2016 17:00:00 +0000</pubDate>
+        <link>https://justin.cfhttps://justin.cf/jekyll/test/2016/10/02/Hello-World2/</link>
+        <guid isPermaLink="true">https://justin.cfhttps://justin.cf/jekyll/test/2016/10/02/Hello-World2/</guid>
+      </item>
+    
+      <item>
+        <title>HelloWorld1</title>
+        <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet quam in ex vulputate, vel porttitor libero volutpat. Integer in velit urna. Suspendisse luctus erat quis suscipit varius. In risus mauris, egestas in ultrices lobortis, venenatis quis metus. Quisque malesuada ornare elit a ullamcorper. Duis consequat rutrum leo, sit amet laoreet dolor blandit ut. Morbi sed sollicitudin nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent sit amet odio sit amet mi venenatis ultrices. Aenean congue lacus sit amet lacus finibus tincidunt. Phasellus malesuada sit amet ipsum hendrerit suscipit. Nunc id ligula non odio posuere varius vitae non metus. Vestibulum ac tortor facilisis, cursus nisi id, mollis dolor.&lt;/p&gt;
+
+&lt;p&gt;Donec nec risus nibh. Nunc id vehicula tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis euismod massa. Cras pellentesque neque dui, non gravida nulla pulvinar egestas. Integer lacinia lacus scelerisque, ornare nisi mollis, laoreet ex. Nunc urna eros, aliquet et pellentesque id, tincidunt suscipit lacus.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 02 Oct 2016 17:00:00 +0000</pubDate>
+        <link>https://justin.cfhttps://justin.cf/jekyll/test/2016/10/02/Hello-World1/</link>
+        <guid isPermaLink="true">https://justin.cfhttps://justin.cf/jekyll/test/2016/10/02/Hello-World1/</guid>
+      </item>
+    
+      <item>
+        <title>Helloworld4</title>
+        <description>&lt;p&gt;Enter text in &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;. Use the toolbar above, or click the &lt;strong&gt;?&lt;/strong&gt; button for formatting help.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 02 Oct 2016 17:00:00 +0000</pubDate>
+        <link>https://justin.cfhttps://justin.cf/jekyll/test/2016/10/02/helloworld4/</link>
+        <guid isPermaLink="true">https://justin.cfhttps://justin.cf/jekyll/test/2016/10/02/helloworld4/</guid>
+      </item>
+    
+      <item>
+        <title>Helloworld3</title>
+        <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet quam in ex vulputate, vel porttitor libero volutpat. Integer in velit urna. Suspendisse luctus erat quis suscipit varius. In risus mauris, egestas in ultrices lobortis, venenatis quis metus. Quisque malesuada ornare elit a ullamcorper. Duis consequat rutrum leo, sit amet laoreet dolor blandit ut. Morbi sed sollicitudin nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent sit amet odio sit amet mi venenatis ultrices. Aenean congue lacus sit amet lacus finibus tincidunt. Phasellus malesuada sit amet ipsum hendrerit suscipit. Nunc id ligula non odio posuere varius vitae non metus. Vestibulum ac tortor facilisis, cursus nisi id, mollis dolor.&lt;/p&gt;
+
+&lt;p&gt;Donec nec risus nibh. Nunc id vehicula tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis euismod massa. Cras pellentesque neque dui, non gravida nulla pulvinar egestas. Integer lacinia lacus scelerisque, ornare nisi mollis, laoreet ex. Nunc urna eros, aliquet et pellentesque id, tincidunt suscipit lacus.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 02 Oct 2016 17:00:00 +0000</pubDate>
+        <link>https://justin.cfhttps://justin.cf/jekyll/test/2016/10/02/helloworld3/</link>
+        <guid isPermaLink="true">https://justin.cfhttps://justin.cf/jekyll/test/2016/10/02/helloworld3/</guid>
+      </item>
+    
+  </channel>
+</rss>
