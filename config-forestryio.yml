@@ -6,6 +6,14 @@ description: Wandering the interwebs
 baseurl: https://justin.cf
 url: https://justin.cf
 date_format: "%b %-d, %Y"
+defaults:
+- scope:
+    path: ''
+    type: posts
+  values:
+    thumbnail: ''
+    categories: []
+    description: ''
 google_verification: 
 google_analytics: 
 google_tag_manager: 

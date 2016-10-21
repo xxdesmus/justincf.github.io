@@ -23,7 +23,7 @@
                 <description>
                     
                 </description>
-                <pubDate>Thu, 20 Oct 2016 17:20:00 +0000</pubDate>
+                <pubDate>Thu, 20 Oct 2016 00:00:00 +0000</pubDate>
                 <author>xxdesmus</author>
             </item>
         
@@ -44,7 +44,48 @@
                 <description>
                     
                 </description>
-                <pubDate>Thu, 20 Oct 2016 17:19:00 +0000</pubDate>
+                <pubDate>Thu, 20 Oct 2016 00:00:00 +0000</pubDate>
+                <author>xxdesmus</author>
+            </item>
+        
+    
+        
+            <item>
+                <title>How to Test if DANE is Properly Configured</title>
+                <link>https://justin.cf/dane/dnssec/2016/10/03/how-to-test-dnssec-dane/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Here’s a simple way to check if <a href="https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE</a> is properly setup on a site:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># echo -n | openssl s_client -connect spdysync.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509 -noout -fingerprint -sha256 | tr -d :
+depth=2 /C=IL/O=StartCom Ltd./OU=Secure Digital Certificate Signing/CN=StartCom Certification Authority
+verify error:num=19:self signed certificate in certificate chain
+verify return:0
+DONE
+SHA256 Fingerprint=461479314CDEC67FB609C812EB74737BAA5327455AD422BA606C88DD530BF2C2
+</code></pre>
+</div>
+
+<p>And then compare that value against published TLSA record:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># dig +short TLSA _443._tcp.spdysync.com
+3 0 1 461479314CDEC67FB609C812EB74737BAA5327455AD422BA606C88DD 530BF2C2
+</code></pre>
+</div>
+
+<p>These value should match. If they don’t assume the site has been compromised.</p>
+
+<p>This assumes of course the domain is also signed with <a href="https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">DNSSEC</a>.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/dane/dnssec/2016/10/03/how-to-test-dnssec-dane/</guid>
+                <description>
+                    
+                    Here’s a simple way to check if DANE is properly setup on a site
+                    
+                </description>
+                <pubDate>Mon, 03 Oct 2016 13:20:00 +0000</pubDate>
                 <author>xxdesmus</author>
             </item>
         
@@ -111,48 +152,7 @@
                     In need of a server monitoring solution...
                     
                 </description>
-                <pubDate>Mon, 03 Oct 2016 13:27:00 +0000</pubDate>
-                <author>xxdesmus</author>
-            </item>
-        
-    
-        
-            <item>
-                <title>How to Test if DANE is Properly Configured</title>
-                <link>https://justin.cf/dane/dnssec/2016/10/03/how-to-test-dnssec-dane/</link>
-                <content:encoded>
-                    <![CDATA[
-                    <p>Here’s a simple way to check if <a href="https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE</a> is properly setup on a site:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code># echo -n | openssl s_client -connect spdysync.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | openssl x509 -noout -fingerprint -sha256 | tr -d :
-depth=2 /C=IL/O=StartCom Ltd./OU=Secure Digital Certificate Signing/CN=StartCom Certification Authority
-verify error:num=19:self signed certificate in certificate chain
-verify return:0
-DONE
-SHA256 Fingerprint=461479314CDEC67FB609C812EB74737BAA5327455AD422BA606C88DD530BF2C2
-</code></pre>
-</div>
-
-<p>And then compare that value against published TLSA record:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code># dig +short TLSA _443._tcp.spdysync.com
-3 0 1 461479314CDEC67FB609C812EB74737BAA5327455AD422BA606C88DD 530BF2C2
-</code></pre>
-</div>
-
-<p>These value should match. If they don’t assume the site has been compromised.</p>
-
-<p>This assumes of course the domain is also signed with <a href="https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">DNSSEC</a>.</p>
-
-                    ]]>
-                </content:encoded>
-                <guid isPermaLink="false">/dane/dnssec/2016/10/03/how-to-test-dnssec-dane/</guid>
-                <description>
-                    
-                    Here’s a simple way to check if DANE is properly setup on a site
-                    
-                </description>
-                <pubDate>Mon, 03 Oct 2016 13:20:00 +0000</pubDate>
+                <pubDate>Mon, 03 Oct 2016 00:00:00 +0000</pubDate>
                 <author>xxdesmus</author>
             </item>
         
