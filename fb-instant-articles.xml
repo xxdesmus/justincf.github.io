@@ -9,6 +9,27 @@
     
         
             <item>
+                <title>TestPost1</title>
+                <link>https://justin.cf/2016/10/20/testpost1/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>Just another sample page.</p>
+
+<p>Qui adipisicing brunch flannel. Literally poutine accusamus normcore, chartreuse salvia la croix nisi. Raw denim mixtape migas tousled aliqua, freegan four loko jianbing exercitation gastropub placeat put a bird on it tilde aesthetic. Tumeric before they sold out chia vinyl. Tilde flannel minim, kickstarter try-hard tbh proident trust fund occaecat cold-pressed irure semiotics. Roof party quinoa non next level umami. Next level direct trade thundercats pork belly vinyl tofu.</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/2016/10/20/testpost1/</guid>
+                <description>
+                    
+                </description>
+                <pubDate>Thu, 20 Oct 2016 17:19:00 +0000</pubDate>
+                <author>xxdesmus</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>Selecting a Website Monitoring Tool</title>
                 <link>https://justin.cf/monitoring/pingdom/newrelic/nodeping/2016/10/03/nodeping-pingdom-server-monitoring/</link>
                 <content:encoded>
