@@ -13,7 +13,6 @@ defaults:
         path: ""
         type: posts
     values:
-        thumbnail: ""
         categories: []
         description: ""
 
