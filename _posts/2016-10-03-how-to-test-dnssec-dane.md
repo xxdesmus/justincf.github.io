@@ -1,8 +1,8 @@
 ---
+title: How to Test if DANE is Properly Configured
+date: '2016-10-03 13:20:00'
 published: true
 layout: post
-title: How to Test if DANE is Properly Configured
-date: 'Mon Oct 3 2016 13:20:00 GMT-0700 (PDT)'
 summary: Here’s a simple way to check if DANE is properly setup on a site
 categories: dane dnssec
 ---
